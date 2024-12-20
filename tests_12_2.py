@@ -42,6 +42,7 @@ class Tournament:
         return finishers
 
 class TournamentTest(unittest.TestCase):
+    is_frozen = True
 
     all_results = {}
 
@@ -60,7 +61,7 @@ class TournamentTest(unittest.TestCase):
         for _, result in cls.all_results.items():
             print({pos: runner.name for pos, runner in result.items()})
 
-
+    @unittest.skipIf(True, "Тесты в этом кейсе заморожены")
     def test_race_usain_nick(self):
         tournament = Tournament(90, self.usain, self.nick)
         results = tournament.start()
@@ -68,7 +69,7 @@ class TournamentTest(unittest.TestCase):
         last_runner = results[max(results.keys())]
         self.assertTrue(last_runner == "Ник")
 
-
+    @unittest.skipIf(True, "Тесты в этом кейсе заморожены")
     def test_race_andrei_nick(self):
         tournament = Tournament(90, self.andrei, self.nick)
         results = tournament.start()
@@ -76,7 +77,7 @@ class TournamentTest(unittest.TestCase):
         last_runner = results[max(results.keys())]
         self.assertTrue(last_runner == "Ник")
 
-
+    @unittest.skipIf(True, "Тесты в этом кейсе заморожены")
     def test_race_usain_andrei_nick(self):
         tournament = Tournament(90, self.usain, self.andrei, self.nick)
         results = tournament.start()
